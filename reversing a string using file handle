@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <string.h>
+void reverseContent(char* x)
+{
+    FILE* f = fopen(x, "a+");
+    if (f == NULL)
+    {
+        printf("Unable to open file\n");
+        return;
+    }
+    char b[100];
+    int a[100], s = 0, c = 0, l;
+    fprintf(f, " \n");
+    rewind(f);
+    while (!feof(f))
+    {
+        fgets(b, sizeof(b), f);
+        l = strlen(b);
+        a = s += l;
+    }
+    rewind(f);
+    c -= 1;
+    while (c >= 0) 
+    {
+        fseek(fp, a, 0);
+        fgets(b, sizeof(b), fp);
+        printf("%s", b);
+        c--;
+    }
+    return ;
+}
+  
+int main()
+{
+    char x[] = "file1.txt";
+    reverseContent(x);
+    return 0;
+}
